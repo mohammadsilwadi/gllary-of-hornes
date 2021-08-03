@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react'
-import Col from 'react-bootstrap/Col';
 import { Card } from 'react-bootstrap';
 export class HornedBeast extends Component {
     constructor(){
         super()
         this.state={
-            fav:0
+            fav:0,
+            modal: false
         }
      
         }
@@ -14,9 +14,14 @@ export class HornedBeast extends Component {
             this.setState({
                 fav:this.state.fav+1
             })
-
-    }
-    render() {
+        }
+        handelModal = () => {
+            this.setState({ modal: true })
+          }
+          handelClose = () => {
+            this.setState({ modal: false })
+          }
+          render() {
         
         return (
             <div>
@@ -25,8 +30,8 @@ export class HornedBeast extends Component {
                 <Card.Title>{this.props.data.title}</Card.Title> 
                 <Card.Text> <p>{this.props.data.description}</p></Card.Text>
                 <img src={this.props.data.image_url} alt={this.props.title}style={{width:'200px'}}
-                onClick={this.addfav} /> 
-                <p> &#9825;
+                 onClick={this.handelModal}/> 
+                <p  onClick={this.addfav} > &#9825;
                 favorited={this.state.fav}</p>
                 </Card.Body>
                 </Card>
@@ -37,10 +42,3 @@ export class HornedBeast extends Component {
 }
 
 export default HornedBeast
-// {/* <Card.Body>
-// <Card.Title>{this.props.name}</Card.Title>
-// <Card.Text>
-// {this.props.title}
-// </Card.Text>
-// <Button variant="primary">{this.props.age}</Button>
-// </Card.Body> */}
