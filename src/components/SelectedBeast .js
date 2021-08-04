@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Card, Modal } from 'react-bootstrap';
 
 
-class SelectedBeasts extends Component {
+class SelectedBeast extends Component {
     render() {
         return (
             <div>
@@ -29,4 +29,4 @@ class SelectedBeasts extends Component {
     }
 }
 
-export default SelectedBeasts;
+export default SelectedBeast;

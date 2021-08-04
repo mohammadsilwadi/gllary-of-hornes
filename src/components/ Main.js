@@ -17,7 +17,6 @@ export class Main extends Component {
                    title={item.title}
                    imageUrl={item.image_url}
                    description={item.description}
-                  imglogo={'https://www.freeiconspng.com/thumbs/heart-png/heart-png-15.png'}
                   showDataList ={this.props.showDataList}
                 />  </Col>)
           
