@@ -2,24 +2,48 @@ import React, { Component } from 'react';
 import Header from './components/ Header';
 import Main from './components/ Main';
 import Footer from './components/ Footer';
-
 import data from "./data/data.json";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import SelectedBeast from './components/SelectedBeast ';
 
 class App extends Component {
-  render() {
-    console.log(data)
-    return (
+  constructor(props){
+    super(props)
+    this.state ={
+      hornedList :data,
+      show : false ,
+      animal : {}
+    }
+}
+
+
+handlerShow=(data)=>{
+   this.setState ({
+    show : true ,
+    animal :data
+
+   })
+}
+
+handlerClose =()=>{
+    this.setState({
+        show : false 
+
+       })
+}
+render() {
+  return (
+
       <div>
-        {/* let header= new Header() */}
-        <Header/>
-        <Main/>
-    
-        <Footer/>
+          <Header/>
+          <Main showDataList = {this.handlerShow} data ={this.state.hornedList} />
+          <SelectedBeast animal = {this.state.animal} showModal ={this.state.show} closeData= {this.handlerClose}/>
+          <Footer/>
+         
       </div>
-    )
-  }
+  )
+}
 }
 
 export default App;

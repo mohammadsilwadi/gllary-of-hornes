@@ -15,23 +15,28 @@ export class HornedBeast extends Component {
                 fav:this.state.fav+1
             })
         }
-        handelModal = () => {
-            this.setState({ modal: true })
-          }
-          handelClose = () => {
-            this.setState({ modal: false })
-          }
-          render() {
-        
+        display=()=>{
+
+            this.props.showDataList({
+                img : this.props.imageUrl , 
+                title : this.props.title , 
+                description : this.props.description
+             })    
+       }
+       displayAddfav = () => {
+        this.addfav();
+        this.display() 
+    }
+          render() {    
         return (
             <div>
                 <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                <Card.Title>{this.props.data.title}</Card.Title> 
-                <Card.Text> <p>{this.props.data.description}</p></Card.Text>
-                <img src={this.props.data.image_url} alt={this.props.title}style={{width:'200px'}}
-                 onClick={this.handelModal}/> 
-                <p  onClick={this.addfav} > &#9825;
+                <Card.Title>{this.props.title}</Card.Title> 
+                <Card.Text> <p>{this.props.description}</p></Card.Text>
+                <img src={this.props.imageUrl} alt={this.props.title}style={{width:'200px'}}
+                 onClick ={this.displayAddfav}/> 
+                <p> &#9825;
                 favorited={this.state.fav}</p>
                 </Card.Body>
                 </Card>
