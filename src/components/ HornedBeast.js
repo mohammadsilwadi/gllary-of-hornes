@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react'
 import { Card } from 'react-bootstrap';
+
 export class HornedBeast extends Component {
     constructor(){
         super()
@@ -27,6 +28,10 @@ export class HornedBeast extends Component {
         this.addfav();
         this.display() 
     }
+
+    
+ 
+  
           render() {    
         return (
             <div>
@@ -40,6 +45,8 @@ export class HornedBeast extends Component {
                 favorited={this.state.fav}</p>
                 </Card.Body>
                 </Card>
+     
+     
             </div>
             
         )

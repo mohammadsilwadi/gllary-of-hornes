@@ -5,45 +5,57 @@ import Footer from './components/ Footer';
 import data from "./data/data.json";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import FormSelect from './components/FormSelect';
 import SelectedBeast from './components/SelectedBeast ';
 
+
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state ={
-      hornedList :data,
-      show : false ,
-      animal : {}
+    this.state = {
+      hornedList: data,
+      show: false,
+      horns: 0,
+      animal: {}
     }
+  }
+handlerForm=(data)=>{
+  this.setState({
+
+  })
 }
-
-
-handlerShow=(data)=>{
-   this.setState ({
-    show : true ,
-    animal :data
-
-   })
-}
-
-handlerClose =()=>{
+  handlerShow = (data) => {
     this.setState({
-        show : false 
+      show: true,
+      animal: data
 
-       })
-}
-render() {
-  return (
+    })
+  }
+ ;
+  handlerClose = () => {
+    this.setState({
+      show: false
+      
+
+    })
+  }
+  submitHandler=(e)=>{
+    e.preventDefault();
+   
+  }
+  render() {
+    return (
 
       <div>
-          <Header/>
-          <Main showDataList = {this.handlerShow} data ={this.state.hornedList} />
-          <SelectedBeast animal = {this.state.animal} showModal ={this.state.show} closeData= {this.handlerClose}/>
-          <Footer/>
-         
+        <Header />
+        <Main showDataList={this.handlerShow} data={this.state.hornedList} />
+        <SelectedBeast animal={this.state.animal} showModal={this.state.show} closeData={this.handlerClose} />
+        <FormSelect horn={this.state.handlerForm}/>
+        <Footer />
+
       </div>
-  )
-}
+    )
+  }
 }
 
 export default App;
