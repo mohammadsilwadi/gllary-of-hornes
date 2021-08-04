@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import HornedBeast from "./ HornedBeast";
-import SelectedBeast from "./SelectedBeast "
-import { Container, Row, Col } from 'react-bootstrap';
-import data from "../data/data.json";
+
+import { Container, Row,Col  } from 'react-bootstrap';
+
 export class Main extends Component {
 
     render() {
-let array=data
         return (
             <Container>
-        <Row>
-            
-            
-                {array.map(Beast => {
-
-                    
-                    return <Col> <HornedBeast data={Beast}
-                key={Beast.title}/>
-
-
-                <SelectedBeast data={Beast}
-                key={Beast.title}/>
-                
-                 </Col>
-                })}
-                </Row>
+         <Row>
+            {
+              this.props.data.map(item => {
+                return (
+                    <Col> <HornedBeast
+                  
+                   title={item.title}
+                   imageUrl={item.image_url}
+                   description={item.description}
+                  imglogo={'https://www.freeiconspng.com/thumbs/heart-png/heart-png-15.png'}
+                  showDataList ={this.props.showDataList}
+                />  </Col>)
+          
+              })
+            }
+        </Row>
 </Container>
             
 

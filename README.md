@@ -96,7 +96,7 @@ Estimate of time needed to complete: 1 hr
 
 Start time: 7
 
-Finish time:
+Finish time:s
 
 Actual time needed to complete:  
 
